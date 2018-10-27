@@ -74,12 +74,12 @@ TEST(LatticeTest, PopulateMarginalTest)
     std::u32string sentence = util::string::utf8text_to_unicodetext("ABC");
     lattice.setSentence(sentence);
 
-    insert_node_with_score_id(&lattice, 0, 1, 1.0, 0);  // A
-    insert_node_with_score_id(&lattice, 1, 1, 1.2, 1);  // B
-    insert_node_with_score_id(&lattice, 2, 1, 2.5, 2);  // C
-    insert_node_with_score_id(&lattice, 0, 2, 3.0, 3);  // AB
-    insert_node_with_score_id(&lattice, 1, 2, 4.0, 4);  // BC
-    insert_node_with_score_id(&lattice, 0, 3, 2.0, 5);  // ABC
+    insert_node_with_score_id(&lattice, 0, 1, 1.0f, 0);  // A
+    insert_node_with_score_id(&lattice, 1, 1, 1.2f, 1);  // B
+    insert_node_with_score_id(&lattice, 2, 1, 2.5f, 2);  // C
+    insert_node_with_score_id(&lattice, 0, 2, 3.0f, 3);  // AB
+    insert_node_with_score_id(&lattice, 1, 2, 4.0f, 4);  // BC
+    insert_node_with_score_id(&lattice, 0, 3, 2.0f, 5);  // ABC
 
     std::vector<float> probs(6, 0.0);
 
@@ -88,10 +88,10 @@ TEST(LatticeTest, PopulateMarginalTest)
     // AB  C : exp(3.0 + 2.5)       => path2
     // A  BC : exp(1.0 + 4.0)       => path3
     // ABC   : exp(2.0)             => path4
-    const float p1 = exp(1.0 + 1.2 + 2.5);
-    const float p2 = exp(3.0 + 2.5);
-    const float p3 = exp(1.0 + 4.0);
-    const float p4 = exp(2.0);
+    const float p1 = exp(1.0f + 1.2f + 2.5f);
+    const float p2 = exp(3.0f + 2.5f);
+    const float p3 = exp(1.0f + 4.0f);
+    const float p4 = exp(2.0f);
     const float Z = p1 + p2 + p3 + p4;
 
     const float logZ = lattice.populateMarginal(1.0, &probs);

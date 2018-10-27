@@ -22,7 +22,6 @@ private:
 private:
     std::vector<Node *> __all_nodes;
     Node *__root;
-
 };
 
 #endif // !__TRIE_H__
