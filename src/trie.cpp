@@ -39,6 +39,10 @@ size_t Trie::commonPrefixSearch(const std::string &key, std::vector<std::pair<st
     return results.size();
 }
 
+size_t Trie::getNodeCount() const
+{
+    return __all_nodes.size();
+}
 ////////////////////////////////////////////////////////////////////////////
 
 Trie::Node *Trie::newNode()

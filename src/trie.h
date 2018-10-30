@@ -15,6 +15,9 @@ public :
     ~Trie();
     void build(const char* keys[], int32 values[], size_t num);
     size_t commonPrefixSearch(const std::string &key, std::vector<std::pair<std::string, int32>> &results) const;
+
+    // get all nodes
+    size_t getNodeCount() const;
 private:
     Node *newNode();
     void insert(const std::string &key, int32 value);

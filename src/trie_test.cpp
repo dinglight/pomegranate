@@ -17,4 +17,6 @@ TEST(TrieTest, commonPrefixSearchTest)
     EXPECT_EQ(2, results.size());
     EXPECT_EQ("bana", results[0].first);
     EXPECT_EQ("banana", results[1].first);
+
+    printf("node count:%d\n", trie.getNodeCount());
 }
